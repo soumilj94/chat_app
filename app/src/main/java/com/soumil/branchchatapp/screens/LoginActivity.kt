@@ -32,6 +32,10 @@ class LoginActivity : AppCompatActivity() {
     private fun performLogIn(username: String, password: String) {
         val request = LoginRequest(username, password)
 
+        if (username.isEmpty() && password.isEmpty()){
+            Toast.makeText(this, "Error! Email or password field cannot empty.", Toast.LENGTH_LONG).show()
+        }
+
         RetrofitClient.instance.login(request).enqueue(object : Callback<LoginResponse>{
             override fun onResponse(p0: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if (response.isSuccessful){
@@ -47,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
                     }
                 }
                 else{
-                    Toast.makeText(this@LoginActivity, "Failed", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@LoginActivity, "Email or password is incorrect", Toast.LENGTH_SHORT).show()
                 }
             }
 
