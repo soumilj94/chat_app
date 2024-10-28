@@ -6,9 +6,8 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.soumil.branchchatapp.MainActivity
-import com.soumil.branchchatapp.api.LoginRequest
-import com.soumil.branchchatapp.api.LoginResponse
+import com.soumil.branchchatapp.data.LoginRequest
+import com.soumil.branchchatapp.data.LoginResponse
 import com.soumil.branchchatapp.api.RetrofitClient
 import com.soumil.branchchatapp.databinding.ActivityLoginBinding
 import retrofit2.Call
@@ -26,7 +25,6 @@ class LoginActivity : AppCompatActivity() {
         binding.loginBtn.setOnClickListener {
             val username = binding.emailField.text.toString()
             val password = binding.passwordField.text.toString()
-            binding.credsTv.setText("Username: $username \n Password: $password")
             performLogIn(username, password)
         }
     }
@@ -38,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
             override fun onResponse(p0: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if (response.isSuccessful){
                     val token = response.body()?.auth_token
-                    Toast.makeText(this@LoginActivity, "Successful! Token: $token", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@LoginActivity, "Login Successful!", Toast.LENGTH_SHORT).show()
                     if (token != null){
                         saveAuthToken(token)
 

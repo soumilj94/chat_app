@@ -1,5 +1,8 @@
 package com.soumil.branchchatapp.api
 
+import com.soumil.branchchatapp.data.LoginRequest
+import com.soumil.branchchatapp.data.LoginResponse
+import com.soumil.branchchatapp.data.Message
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -16,4 +19,10 @@ interface ApiService {
     fun getMessages(
         @Header("X-Branch-Auth-Token") authToken: String
     ): Call<List<Message>>
+
+    @POST("api/messages")
+    fun sendMessage(
+        @Header("X-Branch-Auth-Token") authToken: String,
+        @Body message: Message
+    ): Call<Message>
 }

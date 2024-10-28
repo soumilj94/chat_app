@@ -1,4 +1,4 @@
-package com.soumil.branchchatapp.api
+package com.soumil.branchchatapp.data
 
 data class LoginRequest(
     val username: String,

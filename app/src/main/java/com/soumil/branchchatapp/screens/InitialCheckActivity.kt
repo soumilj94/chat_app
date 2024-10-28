@@ -4,12 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.soumil.branchchatapp.MainActivity
-import com.soumil.branchchatapp.R
 import com.soumil.branchchatapp.databinding.ActivityInitialCheckBinding
 
 class InitialCheckActivity : AppCompatActivity() {
